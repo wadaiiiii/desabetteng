@@ -1,83 +1,250 @@
 <?php get_header(); ?>
 
+
+
 <main id="main">
   <section class="hero">
-    <div class="hero-grid container">
-      <div class="hero-copy">
-        <p class="eyebrow">PORTAL RESMI · DESA BETTENG</p>
-        <h1>Desa yang tumbuh,<br><span>melayani, dan berdaya.</span></h1>
-        <p class="hero-text">Portal informasi publik Desa Betteng untuk pelayanan warga, keterbukaan informasi, potensi desa, dan kabar pembangunan.</p>
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <p class="eyebrow light">DESA BETTENG · PAMBOANG · MAJENE</p>
+        <h1>Data desa yang dekat, <span>jelas, dan terbuka.</span></h1>
+        <p class="hero-text">Satu portal untuk mengenal Desa Betteng, melihat data kependudukan, struktur pemerintahan, potensi lokal, serta mengakses dokumen desa.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="<?php echo esc_url(home_url('/layanan')); ?>">Jelajahi Layanan</a>
-          <a class="btn btn-ghost" href="<?php echo esc_url(home_url('/profil-desa')); ?>">Profil Desa</a>
+          <a class="btn btn-light" href="#wilayah">Lihat Data Desa <b>↘</b></a>
+          <a class="btn btn-glass" href="#dokumen">Pusat Dokumen</a>
         </div>
+        <div class="hero-note"><span>●</span> Sumber utama: arsip Pemerintah Desa Betteng di Google Drive</div>
       </div>
-      <div class="hero-visual">
-        <div class="visual-badge">PROFIL DESA</div>
-        <div class="visual-card">
-          <span class="visual-kicker">BETTENG · PAMBOANG</span>
-          <h2>“Betteng” berarti pertahanan.</h2>
-          <p>Desa Betteng terbentuk pada 1986 dari pemekaran Desa Adolang dan kini terdiri dari empat dusun.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="section" id="tentang">
-    <div class="container split">
-      <div>
-        <p class="eyebrow dark">TENTANG DESA BETTENG</p>
-        <h2 class="section-title">Membangun desa dengan layanan yang dekat dan informasi yang terbuka.</h2>
-      </div>
-      <div class="lead-copy">
-        <p>Desa Betteng berada di Kecamatan Pamboang, Kabupaten Majene, Sulawesi Barat. Laporan kependudukan April 2026 mencatat <strong>1.225 jiwa</strong> dan <strong>338 kepala keluarga</strong> yang tersebar di Dusun Timbogading, Timbogading Utara, Galung, dan Galung Selatan.</p>
-        <p>Pemerintahan Desa Betteng tahun 2026 dipimpin oleh <strong>Sultan, S.Pd., M.M</strong> sebagai Kepala Desa dan <strong>Muhammad Ridwan, S.Pd</strong> sebagai Sekretaris Desa.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section soft" id="berita">
-    <div class="container section-head">
-      <div>
-        <p class="eyebrow dark">KABAR DESA</p>
-        <h2 class="section-title">Berita terbaru.</h2>
-      </div>
-    </div>
-
-    <div class="container news-grid">
-      <?php
-      $news = new WP_Query([
-        'post_type' => 'post',
-        'posts_per_page' => 3,
-      ]);
-      if ($news->have_posts()) :
-        while ($news->have_posts()) : $news->the_post(); ?>
-          <article class="news-card">
-            <?php if (has_post_thumbnail()) : ?>
-              <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large', ['class' => 'news-thumb']); ?></a>
-            <?php else : ?>
-              <div class="news-thumb placeholder"><span>Foto kegiatan</span></div>
-            <?php endif; ?>
-            <div class="news-body">
-              <p class="news-meta"><?php echo esc_html(get_the_date()); ?></p>
-              <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-              <p><?php echo esc_html(wp_trim_words(get_the_excerpt(), 20)); ?></p>
-              <a href="<?php the_permalink(); ?>">Baca selengkapnya →</a>
-            </div>
-          </article>
-        <?php endwhile;
-        wp_reset_postdata();
-      else : ?>
-        <article class="news-card">
-          <div class="news-thumb placeholder"><span>Berita desa</span></div>
-          <div class="news-body">
-            <p class="news-meta">BELUM ADA BERITA</p>
-            <h3>Berita yang diterbitkan melalui WordPress akan muncul otomatis di sini.</h3>
+      <div class="hero-visual reveal">
+        <div class="map-shell">
+          <img
+            src="https://drive.google.com/thumbnail?id=1HnHLJXuMSQguauDgkqwtQNxRpZDBh9z_&sz=w2000"
+            alt="Citra satelit wilayah Desa Betteng"
+            loading="eager"
+            onerror="this.classList.add('image-error')">
+          <div class="map-gradient"></div>
+          <div class="map-label">
+            <span>WILAYAH DESA</span>
+            <strong>20,5 km²</strong>
+            <small>4 dusun · Kecamatan Pamboang</small>
           </div>
+          <a class="map-open" href="https://drive.google.com/file/d/1HnHLJXuMSQguauDgkqwtQNxRpZDBh9z_/view" target="_blank" rel="noopener">Buka peta ↗</a>
+        </div>
+        <div class="floating-stat stat-one"><small>Penduduk</small><strong>1.225</strong><span>jiwa</span></div>
+        <div class="floating-stat stat-two"><small>Kepala keluarga</small><strong>338</strong><span>KK</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="data-ribbon">
+    <div class="container data-ribbon-grid">
+      <div><span>01</span><strong>623</strong><small>Laki-laki</small></div>
+      <div><span>02</span><strong>602</strong><small>Perempuan</small></div>
+      <div><span>03</span><strong>4</strong><small>Dusun</small></div>
+      <div><span>04</span><strong>1986</strong><small>Tahun terbentuk</small></div>
+      <div><span>05</span><strong>20,5</strong><small>km² wilayah</small></div>
+    </div>
+  </section>
+
+  <section class="section intro-section" id="profil">
+    <div class="container intro-grid">
+      <div class="reveal">
+        <p class="eyebrow dark">MENGENAL BETTENG</p>
+        <h2 class="section-title">“Betteng” adalah <span>pertahanan.</span></h2>
+      </div>
+      <div class="lead-copy reveal">
+        <p>Desa Betteng merupakan salah satu desa di Kecamatan Pamboang, Kabupaten Majene, Provinsi Sulawesi Barat. Dalam dokumen profil desa, nama <strong>Betteng</strong> dikaitkan dengan tempat pertahanan pejuang Mandar, termasuk Ammana Wewang dan Ammana Pattolawali.</p>
+        <p>Desa Betteng terbentuk pada <strong>1986</strong> melalui pemekaran Desa Adolang. Wilayahnya kemudian berkembang dan saat ini terdiri atas empat dusun.</p>
+      </div>
+    </div>
+
+    <div class="container timeline reveal">
+      <article><div class="timeline-dot"></div><span>1945</span><h3>Akar sejarah wilayah</h3><p>Wilayah Adolang pada masa itu masih memiliki sistem kepemimpinan Pappuangang.</p></article>
+      <article><div class="timeline-dot"></div><span>1986</span><h3>Desa Betteng terbentuk</h3><p>Pemekaran Desa Adolang melahirkan Desa Betteng sebagai desa tersendiri.</p></article>
+      <article><div class="timeline-dot"></div><span>2011</span><h3>Pemekaran wilayah</h3><p>Wilayah Desa Betteng kembali mengalami pemekaran pada awal 2011.</p></article>
+      <article><div class="timeline-dot"></div><span>Kini</span><h3>Empat dusun</h3><p>Timbogading, Timbogading Utara, Galung, dan Galung Selatan.</p></article>
+    </div>
+  </section>
+
+  <section class="section government-section" id="pemerintahan">
+    <div class="container section-head reveal">
+      <div>
+        <p class="eyebrow dark">PEMERINTAH DESA · SOTK 2026</p>
+        <h2 class="section-title">Melayani dari <span>struktur yang jelas.</span></h2>
+      </div>
+      <p>Susunan berikut mengacu pada dokumen SOTK Pemerintah Desa Betteng Tahun 2026 yang tersedia di arsip desa.</p>
+    </div>
+
+    <div class="container leaders-grid">
+      <article class="leader-card primary reveal">
+        <div class="leader-icon">KD</div>
+        <div>
+          <small>KEPALA DESA</small>
+          <h3>Sultan, S.Pd., M.M</h3>
+          <p>Pimpinan Pemerintah Desa Betteng.</p>
+        </div>
+      </article>
+      <article class="leader-card reveal">
+        <div class="leader-icon">SD</div>
+        <div>
+          <small>SEKRETARIS DESA</small>
+          <h3>Muhammad Ridwan, S.Pd</h3>
+          <p>Koordinasi administrasi dan kesekretariatan desa.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="container officer-grid reveal">
+      <article><small>KAUR PERENCANAAN</small><strong>Nurhayati</strong></article>
+      <article><small>KAUR KEUANGAN</small><strong>St. Sartika</strong></article>
+      <article><small>KAUR TU & UMUM</small><strong>Roswanti, Amd.Kom</strong></article>
+      <article><small>KASI PEMERINTAHAN</small><strong>Kamaruddin</strong></article>
+      <article><small>KASI KESEJAHTERAAN</small><strong>Baharullah, S.IP</strong></article>
+      <article><small>KASI PELAYANAN</small><strong>Nurma</strong></article>
+    </div>
+
+    <div class="container kadus-wrap reveal">
+      <div class="kadus-title"><span>PELAKSANA KEWILAYAHAN</span><strong>4 Kepala Dusun</strong></div>
+      <div class="kadus-list">
+        <div><b>01</b><span>Timbogading</span><strong>Muh. Ali</strong></div>
+        <div><b>02</b><span>Timbogading Utara</span><strong>Muhammad Parwin, S.Sos</strong></div>
+        <div><b>03</b><span>Galung</span><strong>Jumarwan</strong></div>
+        <div><b>04</b><span>Galung Selatan</span><strong>Abd. Waris</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section territory-section" id="wilayah">
+    <div class="container section-head reveal">
+      <div>
+        <p class="eyebrow dark">WILAYAH & KEPENDUDUKAN</p>
+        <h2 class="section-title">Empat dusun, <span>satu Betteng.</span></h2>
+      </div>
+      <p>Jumlah penduduk dan KK bersumber dari Laporan Kependudukan Desa Betteng bulan April 2026. Luas wilayah per dusun mengacu pada peta citra satelit arsip desa.</p>
+    </div>
+
+    <div class="container territory-layout">
+      <div class="hamlet-list reveal">
+        <article>
+          <div class="hamlet-top"><span>01 · TIMBOGADING</span><strong>401 jiwa</strong></div>
+          <div class="bar"><i style="width:46.29%"></i></div>
+          <div class="hamlet-meta"><span>9,49 km² · 46,29% wilayah</span><span>114 KK</span></div>
         </article>
-      <?php endif; ?>
+        <article>
+          <div class="hamlet-top"><span>02 · TIMBOGADING UTARA</span><strong>426 jiwa</strong></div>
+          <div class="bar"><i style="width:18.59%"></i></div>
+          <div class="hamlet-meta"><span>3,81 km² · 18,59% wilayah</span><span>124 KK</span></div>
+        </article>
+        <article>
+          <div class="hamlet-top"><span>03 · GALUNG</span><strong>215 jiwa</strong></div>
+          <div class="bar"><i style="width:19.41%"></i></div>
+          <div class="hamlet-meta"><span>3,98 km² · 19,41% wilayah</span><span>57 KK</span></div>
+        </article>
+        <article>
+          <div class="hamlet-top"><span>04 · GALUNG SELATAN</span><strong>183 jiwa</strong></div>
+          <div class="bar"><i style="width:15.71%"></i></div>
+          <div class="hamlet-meta"><span>3,22 km² · 15,71% wilayah</span><span>43 KK</span></div>
+        </article>
+      </div>
+
+      <a class="map-card reveal" href="https://drive.google.com/file/d/1RMj-oD2aAE0FiCLdfWGr3bJRqoSHfBE6/view" target="_blank" rel="noopener">
+        <img
+          src="https://drive.google.com/thumbnail?id=1RMj-oD2aAE0FiCLdfWGr3bJRqoSHfBE6&sz=w1600"
+          alt="Peta pembagian dusun Desa Betteng"
+          loading="lazy"
+          onerror="this.classList.add('image-error')">
+        <div class="map-card-overlay"><span>PETA PEMBAGIAN DUSUN</span><strong>Lihat peta resolusi penuh ↗</strong></div>
+      </a>
+    </div>
+
+    <div class="container mini-facts reveal">
+      <article><span>5 km</span><p>Jarak ke ibu kota Kecamatan Pamboang</p></article>
+      <article><span>12 km</span><p>Jarak ke ibu kota Kabupaten Majene</p></article>
+      <article><span>135 km</span><p>Jarak ke ibu kota Provinsi Sulawesi Barat</p></article>
+    </div>
+  </section>
+
+  <section class="section potential-section" id="potensi">
+    <div class="container potential-intro reveal">
+      <p class="eyebrow light">POTENSI & EKONOMI DESA</p>
+      <h2 class="section-title light-title">Dari kebun, ternak, dan <span>kearifan lokal.</span></h2>
+      <p>Profil desa mencatat masyarakat Betteng didominasi kegiatan pertanian/perkebunan dan peternakan. Nenas disebut sebagai salah satu komoditas unggulan desa.</p>
+    </div>
+
+    <div class="container economy-layout">
+      <div class="economy-chart reveal">
+        <div class="chart-head"><strong>Mata pencaharian yang tercatat</strong><small>Dokumen profil desa</small></div>
+        <div class="chart-row"><span>Petani / Pekebun</span><div><i style="width:100%"></i></div><b>220</b></div>
+        <div class="chart-row"><span>Peternak</span><div><i style="width:93%"></i></div><b>205</b></div>
+        <div class="chart-row"><span>Buruh Tani</span><div><i style="width:6.4%"></i></div><b>14</b></div>
+        <div class="chart-row"><span>Karyawan Swasta</span><div><i style="width:4.6%"></i></div><b>10</b></div>
+        <div class="chart-row"><span>Industri Rumah Tangga</span><div><i style="width:4.6%"></i></div><b>10</b></div>
+        <div class="chart-row"><span>PNS</span><div><i style="width:4.1%"></i></div><b>9</b></div>
+      </div>
+
+      <div class="commodity-grid reveal">
+        <article class="commodity-feature"><span>KOMODITAS UNGGULAN</span><h3>Nenas</h3><p>Desa Betteng disebut dalam profil desa sebagai salah satu wilayah sentra produksi nenas di Kabupaten Majene.</p></article>
+        <article><span>PERKEBUNAN</span><h3>Kemiri · Kelapa · Pala</h3></article>
+        <article><span>PERKEBUNAN</span><h3>Kakao · Cengkeh</h3></article>
+        <article><span>PETERNAKAN</span><h3>Sapi · Kambing · Ayam</h3></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section education-section">
+    <div class="container section-head reveal">
+      <div>
+        <p class="eyebrow dark">SOSIAL & PENDIDIKAN</p>
+        <h2 class="section-title">Tumbuh bersama <span>masyarakat.</span></h2>
+      </div>
+      <p>Data fasilitas pendidikan berikut tercantum dalam profil desa untuk tahun 2023. Website membedakan tahun sumber agar data lama tidak terbaca sebagai data 2026.</p>
+    </div>
+    <div class="container education-grid reveal">
+      <article><strong>2</strong><span>TK / PAUD</span></article>
+      <article><strong>2</strong><span>Sekolah Dasar</span></article>
+      <article><strong>1</strong><span>SMP</span></article>
+      <article><strong>0</strong><span>SMA di desa</span></article>
+      <div class="culture-card">
+        <small>BUDAYA & KEARIFAN LOKAL</small>
+        <h3>Lembaga Adat Timbogading</h3>
+        <p>Dibentuk melalui musyawarah masyarakat pada 2017 dan dikukuhkan Pemerintah Kabupaten Majene pada Juni 2019. Bahasa Mandar dan semangat gotong royong tetap menjadi bagian penting kehidupan masyarakat.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section document-section" id="dokumen">
+    <div class="container document-layout">
+      <div class="document-copy reveal">
+        <p class="eyebrow dark">PUSAT DOKUMEN</p>
+        <h2 class="section-title">Arsip desa, <span>satu pintu.</span></h2>
+        <p>Dokumen sumber tetap berada di Google Drive. Portal ini menjadi pintu masuk yang lebih mudah untuk menemukan data resmi yang tersedia.</p>
+        <a class="btn btn-dark" href="https://drive.google.com/drive/folders/1hMmI8NV_cfLN3iTcsFPBTTVPOpW7klYg" target="_blank" rel="noopener">Buka Folder Data Desa ↗</a>
+      </div>
+      <div class="document-list reveal">
+        <a href="https://drive.google.com/file/d/1cpJJrHr5VwoaivXYDd8Pn-0yiifQK0U8/view" target="_blank" rel="noopener"><span>01</span><div><b>Profil Desa Betteng</b><small>Profil, sejarah, demografi, sosial dan ekonomi</small></div><i>↗</i></a>
+        <a href="https://drive.google.com/file/d/1xWvp216D9jTEjlKLmy8v6x09l8Bx2JUu/view" target="_blank" rel="noopener"><span>02</span><div><b>SOTK Desa Betteng 2026</b><small>Susunan organisasi dan tata kerja pemerintah desa</small></div><i>↗</i></a>
+        <a href="https://docs.google.com/spreadsheets/d/18N3ekKS6I8xHsLlottX82AEiJiaBt-Gg/edit" target="_blank" rel="noopener"><span>03</span><div><b>Laporan Penduduk April 2026</b><small>Data dusun, jenis kelamin, usia dan KK</small></div><i>↗</i></a>
+        <a href="https://drive.google.com/drive/folders/125vkyp02aY_YEbZQJkcUQVsvpSVDffS7" target="_blank" rel="noopener"><span>04</span><div><b>RPJM Desa Betteng</b><small>Arsip dokumen perencanaan desa</small></div><i>↗</i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="kontak">
+    <div class="container cta-card reveal">
+      <div>
+        <p class="eyebrow light">KANTOR DESA BETTENG</p>
+        <h2>Informasi desa yang lebih mudah dijangkau.</h2>
+        <p>Jl. Buttu Karappuang, Timbogading · Desa Betteng 91451 · Kecamatan Pamboang · Kabupaten Majene, Sulawesi Barat.</p>
+      </div>
+      <a class="btn btn-light" href="#beranda">Kembali ke atas ↑</a>
     </div>
   </section>
 </main>
+
+
+
+
 
 <?php get_footer(); ?>
