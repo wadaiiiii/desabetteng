@@ -13,11 +13,11 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="visual-badge">DESA WISATA</div>
+        <div class="visual-badge">PROFIL DESA</div>
         <div class="visual-card">
           <span class="visual-kicker">BETTENG · PAMBOANG</span>
-          <h2>Alam, budaya, dan pelayanan publik dalam satu portal.</h2>
-          <p>Foto utama desa dapat diatur dari media WordPress pada tahap berikutnya.</p>
+          <h2>“Betteng” berarti pertahanan.</h2>
+          <p>Desa Betteng terbentuk pada 1986 dari pemekaran Desa Adolang dan kini terdiri dari empat dusun.</p>
         </div>
       </div>
     </div>
@@ -30,7 +30,8 @@
         <h2 class="section-title">Membangun desa dengan layanan yang dekat dan informasi yang terbuka.</h2>
       </div>
       <div class="lead-copy">
-        <p>Desa Betteng berada di Kecamatan Pamboang, Kabupaten Majene, Sulawesi Barat.</p>
+        <p>Desa Betteng berada di Kecamatan Pamboang, Kabupaten Majene, Sulawesi Barat. Laporan kependudukan April 2026 mencatat <strong>1.225 jiwa</strong> dan <strong>338 kepala keluarga</strong> yang tersebar di Dusun Timbogading, Timbogading Utara, Galung, dan Galung Selatan.</p>
+        <p>Pemerintahan Desa Betteng tahun 2026 dipimpin oleh <strong>Sultan, S.Pd., M.M</strong> sebagai Kepala Desa dan <strong>Muhammad Ridwan, S.Pd</strong> sebagai Sekretaris Desa.</p>
       </div>
     </div>
   </section>
