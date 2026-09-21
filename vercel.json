@@ -1,1 +1,6 @@
-{"cleanUrls":true,"trailingSlash":false}
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "ignoreCommand": "git diff --quiet \"$VERCEL_GIT_PREVIOUS_SHA\" HEAD -- index.html assets vercel.json || exit 1"
+}
